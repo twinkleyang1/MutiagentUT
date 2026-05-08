@@ -21,15 +21,31 @@ Multi-Agent Unit Test Generation System - 自动生成 Java 项目 UT 测试的�
 ```
 /home/twinkle/app/808/Agent_UT/
 ├── MutiagentUT/              # Agent 代码主目录
-│   ├── planner/              # 规划器
-│   ├── generator/            # 生成器
-│   ├── evaluator/            # 评估器
-│   └── shared/               # 共享工具
+│   ├── Agent/
+│   │   ├── planner/          # 规划器 (planner.py, prompts.py)
+│   │   ├── generator/        # 生成器 (generator.py, ut_template.py, prompts.py)
+│   │   ├── evaluator/        # 评估器 (evaluator.py, prompts.py)
+│   │   └── shared/           # 共享工具 (file_manager.py, constants.py)
+│   ├── Test/                 # 生成的测试输出
+│   ├── shared/               # 共享协调文件 (class_list.json, test_plan.json, progress.txt, coverage_report.json)
+│   ├── main.py               # 入口点
+│   └── README.md
 ├── Plan/                     # 架构设计文档
 ├── Rule/                     # 规则文档
 │   ├── Java_UT_Testing_Rules.md
 │   └── Long_Running_Agent_Rules.md
 └── Test/                     # 生成的测试输出
+```
+
+## 使用方法
+
+```bash
+# 分析 Java 项目并生成测试
+python main.py --java-project-path /path/to/java/project --max-iterations 50
+
+# 或通过环境变量
+export JAVA_PROJECT_PATH=/path/to/java/project
+python main.py --max-iterations 50
 ```
 
 ## 远程仓库
