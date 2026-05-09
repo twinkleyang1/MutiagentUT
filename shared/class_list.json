@@ -2,78 +2,589 @@
   "project_path": "/home/twinkle/app/808/Agent_UT/dianping",
   "scan_date": "2026-05-09",
   "classes": [
-    {"name": "BlogCommentsController", "package": "com.hmdp.controller", "path": "src/main/java/com/hmdp/controller/BlogCommentsController.java", "type": "controller", "priority": 1, "tested": false},
-    {"name": "BlogController", "package": "com.hmdp.controller", "path": "src/main/java/com/hmdp/controller/BlogController.java", "type": "controller", "priority": 1, "tested": false},
-    {"name": "FollowController", "package": "com.hmdp.controller", "path": "src/main/java/com/hmdp/controller/FollowController.java", "type": "controller", "priority": 1, "tested": false},
-    {"name": "ShopController", "package": "com.hmdp.controller", "path": "src/main/java/com/hmdp/controller/ShopController.java", "type": "controller", "priority": 1, "tested": false},
-    {"name": "ShopTypeController", "package": "com.hmdp.controller", "path": "src/main/java/com/hmdp/controller/ShopTypeController.java", "type": "controller", "priority": 1, "tested": false},
-    {"name": "UploadController", "package": "com.hmdp.controller", "path": "src/main/java/com/hmdp/controller/UploadController.java", "type": "controller", "priority": 1, "tested": false},
-    {"name": "UserController", "package": "com.hmdp.controller", "path": "src/main/java/com/hmdp/controller/UserController.java", "type": "controller", "priority": 1, "tested": false},
-    {"name": "VoucherController", "package": "com.hmdp.controller", "path": "src/main/java/com/hmdp/controller/VoucherController.java", "type": "controller", "priority": 1, "tested": false},
-    {"name": "VoucherOrderController", "package": "com.hmdp.controller", "path": "src/main/java/com/hmdp/controller/VoucherOrderController.java", "type": "controller", "priority": 1, "tested": false},
-    {"name": "BlogCommentsServiceImpl", "package": "com.hmdp.service.impl", "path": "src/main/java/com/hmdp/service/impl/BlogCommentsServiceImpl.java", "type": "service", "priority": 1, "tested": false},
-    {"name": "BlogServiceImpl", "package": "com.hmdp.service.impl", "path": "src/main/java/com/hmdp/service/impl/BlogServiceImpl.java", "type": "service", "priority": 1, "tested": false},
-    {"name": "FollowServiceImpl", "package": "com.hmdp.service.impl", "path": "src/main/java/com/hmdp/service/impl/FollowServiceImpl.java", "type": "service", "priority": 1, "tested": false},
-    {"name": "SeckillVoucherServiceImpl", "package": "com.hmdp.service.impl", "path": "src/main/java/com/hmdp/service/impl/SeckillVoucherServiceImpl.java", "type": "service", "priority": 1, "tested": false},
-    {"name": "ShopServiceImpl", "package": "com.hmdp.service.impl", "path": "src/main/java/com/hmdp/service/impl/ShopServiceImpl.java", "type": "service", "priority": 1, "tested": false},
-    {"name": "ShopTypeServiceImpl", "package": "com.hmdp.service.impl", "path": "src/main/java/com/hmdp/service/impl/ShopTypeServiceImpl.java", "type": "service", "priority": 1, "tested": false},
-    {"name": "UserInfoServiceImpl", "package": "com.hmdp.service.impl", "path": "src/main/java/com/hmdp/service/impl/UserInfoServiceImpl.java", "type": "service", "priority": 1, "tested": false},
-    {"name": "UserServiceImpl", "package": "com.hmdp.service.impl", "path": "src/main/java/com/hmdp/service/impl/UserServiceImpl.java", "type": "service", "priority": 1, "tested": false},
-    {"name": "VoucherOrderServiceImpl", "package": "com.hmdp.service.impl", "path": "src/main/java/com/hmdp/service/impl/VoucherOrderServiceImpl.java", "type": "service", "priority": 1, "tested": false},
-    {"name": "VoucherServiceImpl", "package": "com.hmdp.service.impl", "path": "src/main/java/com/hmdp/service/impl/VoucherServiceImpl.java", "type": "service", "priority": 1, "tested": false},
-    {"name": "IBlogCommentsService", "package": "com.hmdp.service", "path": "src/main/java/com/hmdp/service/IBlogCommentsService.java", "type": "service", "priority": 1, "tested": false},
-    {"name": "IBlogService", "package": "com.hmdp.service", "path": "src/main/java/com/hmdp/service/IBlogService.java", "type": "service", "priority": 1, "tested": false},
-    {"name": "IFollowService", "package": "com.hmdp.service", "path": "src/main/java/com/hmdp/service/IFollowService.java", "type": "service", "priority": 1, "tested": false},
-    {"name": "ISeckillVoucherService", "package": "com.hmdp.service", "path": "src/main/java/com/hmdp/service/ISeckillVoucherService.java", "type": "service", "priority": 1, "tested": false},
-    {"name": "IShopService", "package": "com.hmdp.service", "path": "src/main/java/com/hmdp/service/IShopService.java", "type": "service", "priority": 1, "tested": false},
-    {"name": "IShopTypeService", "package": "com.hmdp.service", "path": "src/main/java/com/hmdp/service/IShopTypeService.java", "type": "service", "priority": 1, "tested": false},
-    {"name": "IUserInfoService", "package": "com.hmdp.service", "path": "src/main/java/com/hmdp/service/IUserInfoService.java", "type": "service", "priority": 1, "tested": false},
-    {"name": "IUserService", "package": "com.hmdp.service", "path": "src/main/java/com/hmdp/service/IUserService.java", "type": "service", "priority": 1, "tested": false},
-    {"name": "IVoucherOrderService", "package": "com.hmdp.service", "path": "src/main/java/com/hmdp/service/IVoucherOrderService.java", "type": "service", "priority": 1, "tested": false},
-    {"name": "IVoucherService", "package": "com.hmdp.service", "path": "src/main/java/com/hmdp/service/IVoucherService.java", "type": "service", "priority": 1, "tested": false},
-    {"name": "RedisConstants", "package": "com.hmdp.utils", "path": "src/main/java/com/hmdp/utils/RedisConstants.java", "type": "utils", "priority": 3, "tested": false},
-    {"name": "RegexUtils", "package": "com.hmdp.utils", "path": "src/main/java/com/hmdp/utils/RegexUtils.java", "type": "utils", "priority": 3, "tested": false},
-    {"name": "SystemConstants", "package": "com.hmdp.utils", "path": "src/main/java/com/hmdp/utils/SystemConstants.java", "type": "utils", "priority": 3, "tested": false},
-    {"name": "LoginFormDTO", "package": "com.hmdp.dto", "path": "src/main/java/com/hmdp/dto/LoginFormDTO.java", "type": "entity", "priority": 4, "tested": false},
-    {"name": "UserDTO", "package": "com.hmdp.dto", "path": "src/main/java/com/hmdp/dto/UserDTO.java", "type": "entity", "priority": 4, "tested": false},
-    {"name": "Blog", "package": "com.hmdp.entity", "path": "src/main/java/com/hmdp/entity/Blog.java", "type": "entity", "priority": 4, "tested": false},
-    {"name": "BlogComments", "package": "com.hmdp.entity", "path": "src/main/java/com/hmdp/entity/BlogComments.java", "type": "entity", "priority": 4, "tested": false},
-    {"name": "Follow", "package": "com.hmdp.entity", "path": "src/main/java/com/hmdp/entity/Follow.java", "type": "entity", "priority": 4, "tested": false},
-    {"name": "SeckillVoucher", "package": "com.hmdp.entity", "path": "src/main/java/com/hmdp/entity/SeckillVoucher.java", "type": "entity", "priority": 4, "tested": false},
-    {"name": "Shop", "package": "com.hmdp.entity", "path": "src/main/java/com/hmdp/entity/Shop.java", "type": "entity", "priority": 4, "tested": false},
-    {"name": "ShopType", "package": "com.hmdp.entity", "path": "src/main/java/com/hmdp/entity/ShopType.java", "type": "entity", "priority": 4, "tested": false},
-    {"name": "User", "package": "com.hmdp.entity", "path": "src/main/java/com/hmdp/entity/User.java", "type": "entity", "priority": 4, "tested": false},
-    {"name": "UserInfo", "package": "com.hmdp.entity", "path": "src/main/java/com/hmdp/entity/UserInfo.java", "type": "entity", "priority": 4, "tested": false},
-    {"name": "Voucher", "package": "com.hmdp.entity", "path": "src/main/java/com/hmdp/entity/Voucher.java", "type": "entity", "priority": 4, "tested": false},
-    {"name": "VoucherOrder", "package": "com.hmdp.entity", "path": "src/main/java/com/hmdp/entity/VoucherOrder.java", "type": "entity", "priority": 4, "tested": false},
-    {"name": "BlogMapper", "package": "com.hmdp.mapper", "path": "src/main/java/com/hmdp/mapper/BlogMapper.java", "type": "other", "priority": 5, "tested": false},
-    {"name": "BlogCommentsMapper", "package": "com.hmdp.mapper", "path": "src/main/java/com/hmdp/mapper/BlogCommentsMapper.java", "type": "other", "priority": 5, "tested": false},
-    {"name": "FollowMapper", "package": "com.hmdp.mapper", "path": "src/main/java/com/hmdp/mapper/FollowMapper.java", "type": "other", "priority": 5, "tested": false},
-    {"name": "SeckillVoucherMapper", "package": "com.hmdp.mapper", "path": "src/main/java/com/hmdp/mapper/SeckillVoucherMapper.java", "type": "other", "priority": 5, "tested": false},
-    {"name": "ShopMapper", "package": "com.hmdp.mapper", "path": "src/main/java/com/hmdp/mapper/ShopMapper.java", "type": "other", "priority": 5, "tested": false},
-    {"name": "ShopTypeMapper", "package": "com.hmdp.mapper", "path": "src/main/java/com/hmdp/mapper/ShopTypeMapper.java", "type": "other", "priority": 5, "tested": false},
-    {"name": "UserInfoMapper", "package": "com.hmdp.mapper", "path": "src/main/java/com/hmdp/mapper/UserInfoMapper.java", "type": "other", "priority": 5, "tested": false},
-    {"name": "UserMapper", "package": "com.hmdp.mapper", "path": "src/main/java/com/hmdp/mapper/UserMapper.java", "type": "other", "priority": 5, "tested": false},
-    {"name": "VoucherMapper", "package": "com.hmdp.mapper", "path": "src/main/java/com/hmdp/mapper/VoucherMapper.java", "type": "other", "priority": 5, "tested": false},
-    {"name": "VoucherOrderMapper", "package": "com.hmdp.mapper", "path": "src/main/java/com/hmdp/mapper/VoucherOrderMapper.java", "type": "other", "priority": 5, "tested": false},
-    {"name": "CacheClient", "package": "com.hmdp.utils", "path": "src/main/java/com/hmdp/utils/CacheClient.java", "type": "other", "priority": 5, "tested": false},
-    {"name": "ILock", "package": "com.hmdp.utils", "path": "src/main/java/com/hmdp/utils/ILock.java", "type": "other", "priority": 5, "tested": false},
-    {"name": "PasswordEncoder", "package": "com.hmdp.utils", "path": "src/main/java/com/hmdp/utils/PasswordEncoder.java", "type": "other", "priority": 5, "tested": false},
-    {"name": "RedisData", "package": "com.hmdp.utils", "path": "src/main/java/com/hmdp/utils/RedisData.java", "type": "other", "priority": 5, "tested": false},
-    {"name": "RedisIdWorker", "package": "com.hmdp.utils", "path": "src/main/java/com/hmdp/utils/RedisIdWorker.java", "type": "other", "priority": 5, "tested": false},
-    {"name": "RegexPatterns", "package": "com.hmdp.utils", "path": "src/main/java/com/hmdp/utils/RegexPatterns.java", "type": "other", "priority": 5, "tested": false},
-    {"name": "SimpleRedisLock", "package": "com.hmdp.utils", "path": "src/main/java/com/hmdp/utils/SimpleRedisLock.java", "type": "other", "priority": 5, "tested": false},
-    {"name": "UserHolder", "package": "com.hmdp.utils", "path": "src/main/java/com/hmdp/utils/UserHolder.java", "type": "other", "priority": 5, "tested": false},
-    {"name": "Result", "package": "com.hmdp.dto", "path": "src/main/java/com/hmdp/dto/Result.java", "type": "other", "priority": 5, "tested": false},
-    {"name": "ScrollResult", "package": "com.hmdp.dto", "path": "src/main/java/com/hmdp/dto/ScrollResult.java", "type": "other", "priority": 5, "tested": false},
-    {"name": "LoginInterceptor", "package": "com.hmdp.interceptor", "path": "src/main/java/com/hmdp/interceptor/LoginInterceptor.java", "type": "other", "priority": 5, "tested": false},
-    {"name": "RefreshTokenInterceptor", "package": "com.hmdp.interceptor", "path": "src/main/java/com/hmdp/interceptor/RefreshTokenInterceptor.java", "type": "other", "priority": 5, "tested": false},
-    {"name": "MvcConfig", "package": "com.hmdp.config", "path": "src/main/java/com/hmdp/config/MvcConfig.java", "type": "other", "priority": 5, "tested": false},
-    {"name": "MybatisConfig", "package": "com.hmdp.config", "path": "src/main/java/com/hmdp/config/MybatisConfig.java", "type": "other", "priority": 5, "tested": false},
-    {"name": "QueueConfig", "package": "com.hmdp.config", "path": "src/main/java/com/hmdp/config/QueueConfig.java", "type": "other", "priority": 5, "tested": false},
-    {"name": "RedissonConfig", "package": "com.hmdp.config", "path": "src/main/java/com/hmdp/config/RedissonConfig.java", "type": "other", "priority": 5, "tested": false},
-    {"name": "WebExceptionAdvice", "package": "com.hmdp.config", "path": "src/main/java/com/hmdp/config/WebExceptionAdvice.java", "type": "other", "priority": 5, "tested": false},
-    {"name": "SeckillVoucherListener", "package": "com.hmdp.listener", "path": "src/main/java/com/hmdp/listener/SeckillVoucherListener.java", "type": "other", "priority": 5, "tested": false},
-    {"name": "HmDianPingApplication", "package": "com.hmdp", "path": "src/main/java/com/hmdp/HmDianPingApplication.java", "type": "other", "priority": 5, "tested": false}
+    {
+      "name": "BlogCommentsController",
+      "package": "com.hmdp.controller",
+      "path": "src/main/java/com/hmdp/controller/BlogCommentsController.java",
+      "type": "controller",
+      "priority": 1,
+      "tested": false
+    },
+    {
+      "name": "BlogController",
+      "package": "com.hmdp.controller",
+      "path": "src/main/java/com/hmdp/controller/BlogController.java",
+      "type": "controller",
+      "priority": 1,
+      "tested": true
+    },
+    {
+      "name": "FollowController",
+      "package": "com.hmdp.controller",
+      "path": "src/main/java/com/hmdp/controller/FollowController.java",
+      "type": "controller",
+      "priority": 1,
+      "tested": true
+    },
+    {
+      "name": "ShopController",
+      "package": "com.hmdp.controller",
+      "path": "src/main/java/com/hmdp/controller/ShopController.java",
+      "type": "controller",
+      "priority": 1,
+      "tested": true
+    },
+    {
+      "name": "ShopTypeController",
+      "package": "com.hmdp.controller",
+      "path": "src/main/java/com/hmdp/controller/ShopTypeController.java",
+      "type": "controller",
+      "priority": 1,
+      "tested": true
+    },
+    {
+      "name": "UploadController",
+      "package": "com.hmdp.controller",
+      "path": "src/main/java/com/hmdp/controller/UploadController.java",
+      "type": "controller",
+      "priority": 1,
+      "tested": true
+    },
+    {
+      "name": "UserController",
+      "package": "com.hmdp.controller",
+      "path": "src/main/java/com/hmdp/controller/UserController.java",
+      "type": "controller",
+      "priority": 1,
+      "tested": true
+    },
+    {
+      "name": "VoucherController",
+      "package": "com.hmdp.controller",
+      "path": "src/main/java/com/hmdp/controller/VoucherController.java",
+      "type": "controller",
+      "priority": 1,
+      "tested": true
+    },
+    {
+      "name": "VoucherOrderController",
+      "package": "com.hmdp.controller",
+      "path": "src/main/java/com/hmdp/controller/VoucherOrderController.java",
+      "type": "controller",
+      "priority": 1,
+      "tested": true
+    },
+    {
+      "name": "BlogCommentsServiceImpl",
+      "package": "com.hmdp.service.impl",
+      "path": "src/main/java/com/hmdp/service/impl/BlogCommentsServiceImpl.java",
+      "type": "service",
+      "priority": 1,
+      "tested": true
+    },
+    {
+      "name": "BlogServiceImpl",
+      "package": "com.hmdp.service.impl",
+      "path": "src/main/java/com/hmdp/service/impl/BlogServiceImpl.java",
+      "type": "service",
+      "priority": 1,
+      "tested": true
+    },
+    {
+      "name": "FollowServiceImpl",
+      "package": "com.hmdp.service.impl",
+      "path": "src/main/java/com/hmdp/service/impl/FollowServiceImpl.java",
+      "type": "service",
+      "priority": 1,
+      "tested": true
+    },
+    {
+      "name": "SeckillVoucherServiceImpl",
+      "package": "com.hmdp.service.impl",
+      "path": "src/main/java/com/hmdp/service/impl/SeckillVoucherServiceImpl.java",
+      "type": "service",
+      "priority": 1,
+      "tested": true
+    },
+    {
+      "name": "ShopServiceImpl",
+      "package": "com.hmdp.service.impl",
+      "path": "src/main/java/com/hmdp/service/impl/ShopServiceImpl.java",
+      "type": "service",
+      "priority": 1,
+      "tested": true
+    },
+    {
+      "name": "ShopTypeServiceImpl",
+      "package": "com.hmdp.service.impl",
+      "path": "src/main/java/com/hmdp/service/impl/ShopTypeServiceImpl.java",
+      "type": "service",
+      "priority": 1,
+      "tested": true
+    },
+    {
+      "name": "UserInfoServiceImpl",
+      "package": "com.hmdp.service.impl",
+      "path": "src/main/java/com/hmdp/service/impl/UserInfoServiceImpl.java",
+      "type": "service",
+      "priority": 1,
+      "tested": false
+    },
+    {
+      "name": "UserServiceImpl",
+      "package": "com.hmdp.service.impl",
+      "path": "src/main/java/com/hmdp/service/impl/UserServiceImpl.java",
+      "type": "service",
+      "priority": 1,
+      "tested": true
+    },
+    {
+      "name": "VoucherOrderServiceImpl",
+      "package": "com.hmdp.service.impl",
+      "path": "src/main/java/com/hmdp/service/impl/VoucherOrderServiceImpl.java",
+      "type": "service",
+      "priority": 1,
+      "tested": false
+    },
+    {
+      "name": "VoucherServiceImpl",
+      "package": "com.hmdp.service.impl",
+      "path": "src/main/java/com/hmdp/service/impl/VoucherServiceImpl.java",
+      "type": "service",
+      "priority": 1,
+      "tested": false
+    },
+    {
+      "name": "IBlogCommentsService",
+      "package": "com.hmdp.service",
+      "path": "src/main/java/com/hmdp/service/IBlogCommentsService.java",
+      "type": "service",
+      "priority": 1,
+      "tested": false
+    },
+    {
+      "name": "IBlogService",
+      "package": "com.hmdp.service",
+      "path": "src/main/java/com/hmdp/service/IBlogService.java",
+      "type": "service",
+      "priority": 1,
+      "tested": false
+    },
+    {
+      "name": "IFollowService",
+      "package": "com.hmdp.service",
+      "path": "src/main/java/com/hmdp/service/IFollowService.java",
+      "type": "service",
+      "priority": 1,
+      "tested": false
+    },
+    {
+      "name": "ISeckillVoucherService",
+      "package": "com.hmdp.service",
+      "path": "src/main/java/com/hmdp/service/ISeckillVoucherService.java",
+      "type": "service",
+      "priority": 1,
+      "tested": false
+    },
+    {
+      "name": "IShopService",
+      "package": "com.hmdp.service",
+      "path": "src/main/java/com/hmdp/service/IShopService.java",
+      "type": "service",
+      "priority": 1,
+      "tested": false
+    },
+    {
+      "name": "IShopTypeService",
+      "package": "com.hmdp.service",
+      "path": "src/main/java/com/hmdp/service/IShopTypeService.java",
+      "type": "service",
+      "priority": 1,
+      "tested": false
+    },
+    {
+      "name": "IUserInfoService",
+      "package": "com.hmdp.service",
+      "path": "src/main/java/com/hmdp/service/IUserInfoService.java",
+      "type": "service",
+      "priority": 1,
+      "tested": false
+    },
+    {
+      "name": "IUserService",
+      "package": "com.hmdp.service",
+      "path": "src/main/java/com/hmdp/service/IUserService.java",
+      "type": "service",
+      "priority": 1,
+      "tested": false
+    },
+    {
+      "name": "IVoucherOrderService",
+      "package": "com.hmdp.service",
+      "path": "src/main/java/com/hmdp/service/IVoucherOrderService.java",
+      "type": "service",
+      "priority": 1,
+      "tested": false
+    },
+    {
+      "name": "IVoucherService",
+      "package": "com.hmdp.service",
+      "path": "src/main/java/com/hmdp/service/IVoucherService.java",
+      "type": "service",
+      "priority": 1,
+      "tested": false
+    },
+    {
+      "name": "RedisConstants",
+      "package": "com.hmdp.utils",
+      "path": "src/main/java/com/hmdp/utils/RedisConstants.java",
+      "type": "utils",
+      "priority": 3,
+      "tested": false
+    },
+    {
+      "name": "RegexUtils",
+      "package": "com.hmdp.utils",
+      "path": "src/main/java/com/hmdp/utils/RegexUtils.java",
+      "type": "utils",
+      "priority": 3,
+      "tested": false
+    },
+    {
+      "name": "SystemConstants",
+      "package": "com.hmdp.utils",
+      "path": "src/main/java/com/hmdp/utils/SystemConstants.java",
+      "type": "utils",
+      "priority": 3,
+      "tested": false
+    },
+    {
+      "name": "LoginFormDTO",
+      "package": "com.hmdp.dto",
+      "path": "src/main/java/com/hmdp/dto/LoginFormDTO.java",
+      "type": "entity",
+      "priority": 4,
+      "tested": false
+    },
+    {
+      "name": "UserDTO",
+      "package": "com.hmdp.dto",
+      "path": "src/main/java/com/hmdp/dto/UserDTO.java",
+      "type": "entity",
+      "priority": 4,
+      "tested": false
+    },
+    {
+      "name": "Blog",
+      "package": "com.hmdp.entity",
+      "path": "src/main/java/com/hmdp/entity/Blog.java",
+      "type": "entity",
+      "priority": 4,
+      "tested": false
+    },
+    {
+      "name": "BlogComments",
+      "package": "com.hmdp.entity",
+      "path": "src/main/java/com/hmdp/entity/BlogComments.java",
+      "type": "entity",
+      "priority": 4,
+      "tested": false
+    },
+    {
+      "name": "Follow",
+      "package": "com.hmdp.entity",
+      "path": "src/main/java/com/hmdp/entity/Follow.java",
+      "type": "entity",
+      "priority": 4,
+      "tested": false
+    },
+    {
+      "name": "SeckillVoucher",
+      "package": "com.hmdp.entity",
+      "path": "src/main/java/com/hmdp/entity/SeckillVoucher.java",
+      "type": "entity",
+      "priority": 4,
+      "tested": false
+    },
+    {
+      "name": "Shop",
+      "package": "com.hmdp.entity",
+      "path": "src/main/java/com/hmdp/entity/Shop.java",
+      "type": "entity",
+      "priority": 4,
+      "tested": false
+    },
+    {
+      "name": "ShopType",
+      "package": "com.hmdp.entity",
+      "path": "src/main/java/com/hmdp/entity/ShopType.java",
+      "type": "entity",
+      "priority": 4,
+      "tested": false
+    },
+    {
+      "name": "User",
+      "package": "com.hmdp.entity",
+      "path": "src/main/java/com/hmdp/entity/User.java",
+      "type": "entity",
+      "priority": 4,
+      "tested": false
+    },
+    {
+      "name": "UserInfo",
+      "package": "com.hmdp.entity",
+      "path": "src/main/java/com/hmdp/entity/UserInfo.java",
+      "type": "entity",
+      "priority": 4,
+      "tested": false
+    },
+    {
+      "name": "Voucher",
+      "package": "com.hmdp.entity",
+      "path": "src/main/java/com/hmdp/entity/Voucher.java",
+      "type": "entity",
+      "priority": 4,
+      "tested": false
+    },
+    {
+      "name": "VoucherOrder",
+      "package": "com.hmdp.entity",
+      "path": "src/main/java/com/hmdp/entity/VoucherOrder.java",
+      "type": "entity",
+      "priority": 4,
+      "tested": false
+    },
+    {
+      "name": "BlogMapper",
+      "package": "com.hmdp.mapper",
+      "path": "src/main/java/com/hmdp/mapper/BlogMapper.java",
+      "type": "other",
+      "priority": 5,
+      "tested": false
+    },
+    {
+      "name": "BlogCommentsMapper",
+      "package": "com.hmdp.mapper",
+      "path": "src/main/java/com/hmdp/mapper/BlogCommentsMapper.java",
+      "type": "other",
+      "priority": 5,
+      "tested": false
+    },
+    {
+      "name": "FollowMapper",
+      "package": "com.hmdp.mapper",
+      "path": "src/main/java/com/hmdp/mapper/FollowMapper.java",
+      "type": "other",
+      "priority": 5,
+      "tested": false
+    },
+    {
+      "name": "SeckillVoucherMapper",
+      "package": "com.hmdp.mapper",
+      "path": "src/main/java/com/hmdp/mapper/SeckillVoucherMapper.java",
+      "type": "other",
+      "priority": 5,
+      "tested": false
+    },
+    {
+      "name": "ShopMapper",
+      "package": "com.hmdp.mapper",
+      "path": "src/main/java/com/hmdp/mapper/ShopMapper.java",
+      "type": "other",
+      "priority": 5,
+      "tested": false
+    },
+    {
+      "name": "ShopTypeMapper",
+      "package": "com.hmdp.mapper",
+      "path": "src/main/java/com/hmdp/mapper/ShopTypeMapper.java",
+      "type": "other",
+      "priority": 5,
+      "tested": false
+    },
+    {
+      "name": "UserInfoMapper",
+      "package": "com.hmdp.mapper",
+      "path": "src/main/java/com/hmdp/mapper/UserInfoMapper.java",
+      "type": "other",
+      "priority": 5,
+      "tested": false
+    },
+    {
+      "name": "UserMapper",
+      "package": "com.hmdp.mapper",
+      "path": "src/main/java/com/hmdp/mapper/UserMapper.java",
+      "type": "other",
+      "priority": 5,
+      "tested": false
+    },
+    {
+      "name": "VoucherMapper",
+      "package": "com.hmdp.mapper",
+      "path": "src/main/java/com/hmdp/mapper/VoucherMapper.java",
+      "type": "other",
+      "priority": 5,
+      "tested": false
+    },
+    {
+      "name": "VoucherOrderMapper",
+      "package": "com.hmdp.mapper",
+      "path": "src/main/java/com/hmdp/mapper/VoucherOrderMapper.java",
+      "type": "other",
+      "priority": 5,
+      "tested": false
+    },
+    {
+      "name": "CacheClient",
+      "package": "com.hmdp.utils",
+      "path": "src/main/java/com/hmdp/utils/CacheClient.java",
+      "type": "other",
+      "priority": 5,
+      "tested": false
+    },
+    {
+      "name": "ILock",
+      "package": "com.hmdp.utils",
+      "path": "src/main/java/com/hmdp/utils/ILock.java",
+      "type": "other",
+      "priority": 5,
+      "tested": false
+    },
+    {
+      "name": "PasswordEncoder",
+      "package": "com.hmdp.utils",
+      "path": "src/main/java/com/hmdp/utils/PasswordEncoder.java",
+      "type": "other",
+      "priority": 5,
+      "tested": false
+    },
+    {
+      "name": "RedisData",
+      "package": "com.hmdp.utils",
+      "path": "src/main/java/com/hmdp/utils/RedisData.java",
+      "type": "other",
+      "priority": 5,
+      "tested": false
+    },
+    {
+      "name": "RedisIdWorker",
+      "package": "com.hmdp.utils",
+      "path": "src/main/java/com/hmdp/utils/RedisIdWorker.java",
+      "type": "other",
+      "priority": 5,
+      "tested": false
+    },
+    {
+      "name": "RegexPatterns",
+      "package": "com.hmdp.utils",
+      "path": "src/main/java/com/hmdp/utils/RegexPatterns.java",
+      "type": "other",
+      "priority": 5,
+      "tested": false
+    },
+    {
+      "name": "SimpleRedisLock",
+      "package": "com.hmdp.utils",
+      "path": "src/main/java/com/hmdp/utils/SimpleRedisLock.java",
+      "type": "other",
+      "priority": 5,
+      "tested": false
+    },
+    {
+      "name": "UserHolder",
+      "package": "com.hmdp.utils",
+      "path": "src/main/java/com/hmdp/utils/UserHolder.java",
+      "type": "other",
+      "priority": 5,
+      "tested": false
+    },
+    {
+      "name": "Result",
+      "package": "com.hmdp.dto",
+      "path": "src/main/java/com/hmdp/dto/Result.java",
+      "type": "other",
+      "priority": 5,
+      "tested": false
+    },
+    {
+      "name": "ScrollResult",
+      "package": "com.hmdp.dto",
+      "path": "src/main/java/com/hmdp/dto/ScrollResult.java",
+      "type": "other",
+      "priority": 5,
+      "tested": false
+    },
+    {
+      "name": "LoginInterceptor",
+      "package": "com.hmdp.interceptor",
+      "path": "src/main/java/com/hmdp/interceptor/LoginInterceptor.java",
+      "type": "other",
+      "priority": 5,
+      "tested": false
+    },
+    {
+      "name": "RefreshTokenInterceptor",
+      "package": "com.hmdp.interceptor",
+      "path": "src/main/java/com/hmdp/interceptor/RefreshTokenInterceptor.java",
+      "type": "other",
+      "priority": 5,
+      "tested": false
+    },
+    {
+      "name": "MvcConfig",
+      "package": "com.hmdp.config",
+      "path": "src/main/java/com/hmdp/config/MvcConfig.java",
+      "type": "other",
+      "priority": 5,
+      "tested": false
+    },
+    {
+      "name": "MybatisConfig",
+      "package": "com.hmdp.config",
+      "path": "src/main/java/com/hmdp/config/MybatisConfig.java",
+      "type": "other",
+      "priority": 5,
+      "tested": false
+    },
+    {
+      "name": "QueueConfig",
+      "package": "com.hmdp.config",
+      "path": "src/main/java/com/hmdp/config/QueueConfig.java",
+      "type": "other",
+      "priority": 5,
+      "tested": false
+    },
+    {
+      "name": "RedissonConfig",
+      "package": "com.hmdp.config",
+      "path": "src/main/java/com/hmdp/config/RedissonConfig.java",
+      "type": "other",
+      "priority": 5,
+      "tested": false
+    },
+    {
+      "name": "WebExceptionAdvice",
+      "package": "com.hmdp.config",
+      "path": "src/main/java/com/hmdp/config/WebExceptionAdvice.java",
+      "type": "other",
+      "priority": 5,
+      "tested": false
+    },
+    {
+      "name": "SeckillVoucherListener",
+      "package": "com.hmdp.listener",
+      "path": "src/main/java/com/hmdp/listener/SeckillVoucherListener.java",
+      "type": "other",
+      "priority": 5,
+      "tested": false
+    },
+    {
+      "name": "HmDianPingApplication",
+      "package": "com.hmdp",
+      "path": "src/main/java/com/hmdp/HmDianPingApplication.java",
+      "type": "other",
+      "priority": 5,
+      "tested": false
+    }
   ]
 }

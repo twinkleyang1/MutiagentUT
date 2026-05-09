@@ -33,7 +33,9 @@
 
 为该类生成 JUnit 5 测试文件：
 
-**文件路径**: `Test/src/test/java/{package_path}/{ClassName}Test.java`
+**文件路径**: `src/test/java/{package_path}/{ClassName}Test.java`
+
+**重要**: Maven 标准测试路径是 `src/test/java/`，不是 `Test/src/test/java/`
 
 **包名**: 与源代码相同
 
@@ -113,6 +115,40 @@ Examples:
 - Empty input: 参数为空 (空字符串、空集合)
 - Invalid input: 参数无效
 - Exception: 异常场景
+
+### 7. Mock 使用规则 (关键)
+
+**必须遵守**:
+- 所有外部依赖 (Redis, MyBatis Mapper, Database, 其他 Service) 必须使用 `@Mock` Mock
+- 使用 `@ExtendWith(MockitoExtension.class)` 启用 Mockito
+- 使用 `@InjectMocks` 注入被测类
+
+**MyBatis Plus 链式调用处理**:
+- MyBatis Plus 的 `query()`, `orderByDesc()`, `page()` 等方法返回的是特殊代理对象
+- 这些链式调用无法直接 Mock，遇到时会报错
+- **解决方案**:
+  1. 优先测试不含链式调用的简单方法
+  2. 对于复杂 ServiceImpl，先测试 Controller 层
+  3. 或者使用 `@Mock(lenient = true)` 和 `lenient().when()` 语法
+
+**示例 - 可以直接测试的方法**:
+```java
+// RegexUtils, Result, UserDTO 等工具类/DTO 可以直接测试
+// 不涉及外部依赖的方法可以直接测试
+```
+
+**示例 - 需要小心处理的方法**:
+```java
+// ServiceImpl 中涉及 MyBatis 链式调用的方法
+// 例如: query().orderByDesc("field").page() 这种无法 Mock
+```
+
+**示例 - 推荐优先测试的类**:
+```java
+// Controller 层 - 依赖注入简单，Mock 方便
+// Utils 层 - 静态方法多，但可以直接测试
+// DTO/Entity - 只有 getter/setter，直接实例化即可
+```
 
 ### 7. 更新状态
 

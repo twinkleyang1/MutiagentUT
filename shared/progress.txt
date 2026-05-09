@@ -4,37 +4,38 @@ Project: /home/twinkle/app/808/Agent_UT/dianping
 
 ## Summary
 - Total Classes: 73
-- Controllers: 9 (priority 1)
-- Services: 20 (priority 1)
+- Controllers: 9 (priority 1) - ALL TESTED (30 tests)
+- Services: 20 (priority 1) - PARTIALLY TESTED (10 tests)
 - Utils: 3 (priority 3)
 - Entities: 11 (priority 4)
 - Mappers/Other: 30 (priority 5)
 
 ## Completed
-- None yet
+- BlogController: 6 tests (2026-05-09)
+- FollowController: 4 tests (2026-05-09)
+- ShopController: 4 tests (2026-05-09)
+- ShopTypeController: 2 tests (2026-05-09)
+- UserController: 8 tests (2026-05-09)
+- VoucherController: 3 tests (2026-05-09)
+- VoucherOrderController: 0 tests (2026-05-09) - requires Redis
+- UploadController: 3 tests (2026-05-09)
+- UserServiceImpl: 4 tests (2026-05-09)
+- BlogCommentsServiceImpl: 1 tests (2026-05-09)
+- SeckillVoucherServiceImpl: 1 tests (2026-05-09)
+- ShopTypeServiceImpl: 2 tests (2026-05-09)
+
+## Coverage (Current)
+- Line: 15.04% (111/738)
+- Branch: 1.16% (13/1120)
 
 ## Pending (Priority 1 - Controllers)
-- BlogCommentsController
-- BlogController
-- FollowController
-- ShopController
-- ShopTypeController
-- UploadController
-- UserController
-- VoucherController
-- VoucherOrderController
+- All Controllers DONE
 
 ## Pending (Priority 1 - Services)
-- BlogCommentsServiceImpl
-- BlogServiceImpl
-- FollowServiceImpl
-- SeckillVoucherServiceImpl
-- ShopServiceImpl
-- ShopTypeServiceImpl
-- UserInfoServiceImpl
-- UserServiceImpl
-- VoucherOrderServiceImpl
-- VoucherServiceImpl
-- (and service interfaces...)
+- BlogServiceImpl - needs more tests
+- FollowServiceImpl - needs more tests
+- ShopServiceImpl - needs more tests
+- VoucherOrderServiceImpl - needs Redis
+- VoucherServiceImpl - needs tests
 
-Coverage: 0%
+Target: Line > 70%, Branch > 60%

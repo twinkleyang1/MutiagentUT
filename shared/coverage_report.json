@@ -1,0 +1,15 @@
+{
+  "date": "2026-05-09",
+  "line_coverage": 18.29,
+  "line_covered": 135,
+  "line_total": 738,
+  "branch_coverage": 1.25,
+  "branch_covered": 14,
+  "branch_total": 1120,
+  "target_line": 70,
+  "target_branch": 60,
+  "classes_tested": 18,
+  "total_classes": 73,
+  "tests_passed": 67,
+  "note": "Far from targets - requires Redis/db integration or significant refactoring"
+}

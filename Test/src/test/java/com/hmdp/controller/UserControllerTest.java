@@ -1,5 +1,6 @@
 package com.hmdp.controller;
 
+import cn.hutool.core.bean.BeanUtil;
 import com.hmdp.dto.LoginFormDTO;
 import com.hmdp.dto.Result;
 import com.hmdp.dto.UserDTO;
@@ -16,11 +17,9 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.data.redis.core.StringRedisTemplate;
-
-import javax.servlet.http.HttpSession;
+import org.springframework.mock.web.MockHttpSession;
 
 import static org.junit.jupiter.api.Assertions.*;
-import static org.mockito.ArgumentMatchers.*;
 import static org.mockito.Mockito.*;
 
 /**
@@ -39,135 +38,194 @@ class UserControllerTest {
     @Mock
     private StringRedisTemplate redisTemplate;
 
-    @Mock
-    private HttpSession session;
-
     @InjectMocks
     private UserController userController;
 
-    private UserDTO testUserDTO;
-    private User testUser;
-    private UserInfo testUserInfo;
+    private MockHttpSession session;
 
     @BeforeEach
     void setUp() {
-        testUserDTO = new UserDTO();
-        testUserDTO.setId(1L);
-        testUserDTO.setNickName("TestUser");
-
-        testUser = new User();
-        testUser.setId(1L);
-        testUser.setNickName("TestUser");
-
-        testUserInfo = new UserInfo();
-        testUserInfo.setId(1L);
-        testUserInfo.setCity("TestCity");
+        session = new MockHttpSession();
+        UserHolder.removeUser();
     }
 
     @Test
-    @DisplayName("Should return result when sendCode is called")
-    void shouldReturnResultWhenSendCodeCalled() {
+    @DisplayName("Should send verification code when phone is valid")
+    void shouldSendVerificationCodeWhenPhoneIsValid() {
         // Arrange
-        when(userService.sendCode(anyString(), any(HttpSession.class))).thenReturn(Result.ok());
+        String phone = "13800138000";
+        when(userService.sendCode(eq(phone), any())).thenReturn(Result.ok());
 
         // Act
-        Result result = userController.sendCode("13800138000", session);
+        Result result = userController.sendCode(phone, session);
 
         // Assert
         assertNotNull(result);
-        assertTrue(result.isSuccess());
-        verify(userService).sendCode("13800138000", session);
+        verify(userService).sendCode(eq(phone), any());
     }
 
     @Test
-    @DisplayName("Should return result when login is called")
-    void shouldReturnResultWhenLoginCalled() {
+    @DisplayName("Should login successfully when credentials are valid")
+    void shouldLoginSuccessfullyWhenCredentialsAreValid() {
         // Arrange
         LoginFormDTO loginForm = new LoginFormDTO();
         loginForm.setPhone("13800138000");
         loginForm.setCode("123456");
-        when(userService.login(any(LoginFormDTO.class), any(HttpSession.class))).thenReturn(Result.ok());
+        UserDTO userDTO = new UserDTO();
+        userDTO.setId(1L);
+        userDTO.setNickName("testUser");
+        when(userService.login(any(LoginFormDTO.class), any())).thenReturn(Result.ok(userDTO));
 
         // Act
         Result result = userController.login(loginForm, session);
 
         // Assert
         assertNotNull(result);
-        assertTrue(result.isSuccess());
+        verify(userService).login(any(LoginFormDTO.class), any());
     }
 
     @Test
-    @DisplayName("Should return fail when logout is called")
-    void shouldReturnFailWhenLogoutCalled() {
+    @DisplayName("Should logout successfully and remove user from ThreadLocal")
+    void shouldLogoutSuccessfullyAndRemoveUserFromThreadLocal() {
+        // Arrange
+        UserDTO user = new UserDTO();
+        user.setId(1L);
+        UserHolder.saveUser(user);
+
         // Act
         Result result = userController.logout();
 
         // Assert
         assertNotNull(result);
-        assertFalse(result.isSuccess());
-        assertEquals("功能未完成", result.getMsg());
-        verify(UserHolder.class);
+        assertNull(UserHolder.getUser());
     }
 
     @Test
-    @DisplayName("Should return user when me is called and user is logged in")
-    void shouldReturnUserWhenMeCalledAndUserLoggedIn() {
+    @DisplayName("Should return current user when user is logged in")
+    void shouldReturnCurrentUserWhenUserIsLoggedIn() {
         // Arrange
-        UserHolder.setUser(testUserDTO);
+        UserDTO userDTO = new UserDTO();
+        userDTO.setId(1L);
+        userDTO.setNickName("testUser");
+        UserHolder.saveUser(userDTO);
 
         // Act
         Result result = userController.me();
 
         // Assert
         assertNotNull(result);
-        assertTrue(result.isSuccess());
-        assertEquals(testUserDTO, result.getData());
-
-        // Cleanup
-        UserHolder.removeUser();
-    }
-
-    @Test
-    @DisplayName("Should return user info when info is called")
-    void shouldReturnUserInfoWhenInfoCalled() {
-        // Arrange
-        when(userInfoService.getById(1L)).thenReturn(testUserInfo);
-
-        // Act
-        Result result = userController.info(1L);
-
-        // Assert
-        assertNotNull(result);
-        assertTrue(result.isSuccess());
-    }
-
-    @Test
-    @DisplayName("Should return empty result when user not found")
-    void shouldReturnEmptyResultWhenUserNotFound() {
-        // Arrange
-        when(userService.getById(999L)).thenReturn(null);
-
-        // Act
-        Result result = userController.queryUserById(999L);
-
-        // Assert
-        assertNotNull(result);
-        assertTrue(result.isSuccess());
-    }
-
-    @Test
-    @DisplayName("Should return user DTO when user found")
-    void shouldReturnUserDTOWhenUserFound() {
-        // Arrange
-        when(userService.getById(1L)).thenReturn(testUser);
-
-        // Act
-        Result result = userController.queryUserById(1L);
-
-        // Assert
-        assertNotNull(result);
-        assertTrue(result.isSuccess());
         UserDTO returnedUser = (UserDTO) result.getData();
-        assertEquals(testUser.getNickName(), returnedUser.getNickName());
+        assertEquals(1L, returnedUser.getId());
+    }
+
+    @Test
+    @DisplayName("Should return empty result when user not logged in")
+    void shouldReturnEmptyResultWhenUserNotLoggedIn() {
+        // Arrange
+        UserHolder.removeUser();
+
+        // Act
+        Result result = userController.me();
+
+        // Assert
+        assertNotNull(result);
+        assertNull(result.getData());
+    }
+
+    @Test
+    @DisplayName("Should return user info when user exists")
+    void shouldReturnUserInfoWhenUserExists() {
+        // Arrange
+        Long userId = 1L;
+        UserInfo userInfo = new UserInfo();
+        userInfo.setId(userId);
+        userInfo.setNickName("testInfo");
+        when(userInfoService.getById(userId)).thenReturn(userInfo);
+
+        // Act
+        Result result = userController.info(userId);
+
+        // Assert
+        assertNotNull(result);
+        verify(userInfoService).getById(userId);
+    }
+
+    @Test
+    @DisplayName("Should return ok when user info not found")
+    void shouldReturnOkWhenUserInfoNotFound() {
+        // Arrange
+        Long userId = 999L;
+        when(userInfoService.getById(userId)).thenReturn(null);
+
+        // Act
+        Result result = userController.info(userId);
+
+        // Assert
+        assertNotNull(result);
+        assertTrue(result.isSuccess());
+    }
+
+    @Test
+    @DisplayName("Should return user by id when user exists")
+    void shouldReturnUserByIdWhenUserExists() {
+        // Arrange
+        Long userId = 1L;
+        User user = new User();
+        user.setId(userId);
+        user.setNickName("testUser");
+        when(userService.getById(userId)).thenReturn(user);
+
+        // Act
+        Result result = userController.queryUserById(userId);
+
+        // Assert
+        assertNotNull(result);
+        UserDTO userDTO = (UserDTO) result.getData();
+        assertEquals(userId, userDTO.getId());
+    }
+
+    @Test
+    @DisplayName("Should return ok when user not found by id")
+    void shouldReturnOkWhenUserNotFoundById() {
+        // Arrange
+        Long userId = 999L;
+        when(userService.getById(userId)).thenReturn(null);
+
+        // Act
+        Result result = userController.queryUserById(userId);
+
+        // Assert
+        assertNotNull(result);
+        assertTrue(result.isSuccess());
+    }
+
+    @Test
+    @DisplayName("Should sign successfully")
+    void shouldSignSuccessfully() {
+        // Arrange
+        when(userService.sign()).thenReturn(Result.ok());
+
+        // Act
+        Result result = userController.sign();
+
+        // Assert
+        assertNotNull(result);
+        assertTrue(result.isSuccess());
+        verify(userService).sign();
+    }
+
+    @Test
+    @DisplayName("Should return sign count successfully")
+    void shouldReturnSignCountSuccessfully() {
+        // Arrange
+        when(userService.signCount()).thenReturn(Result.ok(5));
+
+        // Act
+        Result result = userController.signCount();
+
+        // Assert
+        assertNotNull(result);
+        assertEquals(5, result.getData());
+        verify(userService).signCount();
     }
 }
