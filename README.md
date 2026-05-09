@@ -10,9 +10,18 @@ Multi-Agent Unit Test Generation System - 自动生成 Java 项目 UT 测试的�
 
 ```
 ┌─────────────────────────────────────────────────────┐
-│  规划器 (Planner)  → 分析项目结构，生成测试计划      │
-│  生成器 (Generator) → 逐个类编写 UT 测试              │
-│  评估器 (Evaluator) → 验证测试质量和覆盖率            │
+│                 Harness Mode (Claude Code 驱动)      │
+├─────────────────────────────────────────────────────┤
+│  协调层 (Python)                                      │
+│  └── harness/ (state_manager + coordinator)          │
+│                                                      │
+│  执行层 (Claude Code)                                 │
+│  └── prompts/ (PLANNER/GENERATOR/EVALUATOR prompts)  │
+│                                                      │
+│  状态文件 (shared/)                                   │
+│  └── class_list.json, test_plan.json, progress.txt   │
+│                                                      │
+│  Ralph-Loop 控制迭代                                  │
 └─────────────────────────────────────────────────────┘
 ```
 
@@ -20,32 +29,47 @@ Multi-Agent Unit Test Generation System - 自动生成 Java 项目 UT 测试的�
 
 ```
 /home/twinkle/app/808/Agent_UT/
-├── MutiagentUT/              # Agent 代码主目录
-│   ├── Agent/
-│   │   ├── planner/          # 规划器 (planner.py, prompts.py)
-│   │   ├── generator/        # 生成器 (generator.py, ut_template.py, prompts.py)
-│   │   ├── evaluator/        # 评估器 (evaluator.py, prompts.py)
-│   │   └── shared/           # 共享工具 (file_manager.py, constants.py)
+├── MutiagentUT/              # Harness 代码主目录
+│   ├── harness/              # Python 协调层
+│   │   ├── state_manager.py  # 状态文件读写
+│   │   └── coordinator.py    # 主协调器
+│   ├── prompts/              # Claude Code 指令
+│   │   ├── PLANNER_PROMPT.md
+│   │   ├── GENERATOR_PROMPT.md
+│   │   ├── EVALUATOR_PROMPT.md
+│   │   └── ITERATION_PROMPT.md
+│   ├── scripts/              # 辅助脚本
+│   ├── rules/                 # 规则文档
+│   ├── shared/               # 共享状态文件
 │   ├── Test/                 # 生成的测试输出
-│   ├── shared/               # 共享协调文件 (class_list.json, test_plan.json, progress.txt, coverage_report.json)
 │   ├── main.py               # 入口点
 │   └── README.md
 ├── Plan/                     # 架构设计文档
-├── Rule/                     # 规则文档
-│   ├── Java_UT_Testing_Rules.md
-│   └── Long_Running_Agent_Rules.md
-└── Test/                     # 生成的测试输出
+└── Rule/                     # 规则文档
 ```
 
 ## 使用方法
 
+### Harness 命令
 ```bash
-# 分析 Java 项目并生成测试
-python main.py --java-project-path /path/to/java/project --max-iterations 50
+# 检查状态
+python main.py status
 
-# 或通过环境变量
-export JAVA_PROJECT_PATH=/path/to/java/project
-python main.py --max-iterations 50
+# 显示当前迭代 prompt
+python main.py prompt
+
+# 初始化检查
+python main.py init --java-project-path /path/to/java/project
+
+# 重置状态
+python main.py reset --force
+```
+
+### Ralph-Loop 启动
+```bash
+cd /home/twinkle/app/808/Agent_UT/MutiagentUT
+
+/ralph-loop "根据 Plan 和 Rule，为 {java_project_path} 生成 UT。覆盖率达到 Line>70%, Branch>60% 时输出 <promise>CODE_IMPROVED</promise>" --max-iterations 50 --completion-promise "CODE_IMPROVED"
 ```
 
 ## 远程仓库
@@ -55,19 +79,18 @@ python main.py --max-iterations 50
 
 ## 代码推送规则
 
-所有代码修改必须遵循以下流程：
+**重要**: 每次 git commit 创建新分支，不要在同一个分支上连续提交。
 
-1. **每次功能完成** → 立即提交到本地 Git
-2. **提交信息规范**：
-   ```
-   feat: [功能描述]
+### 原因
+- 允许多个版本并行存在，便于对比和回溯
+- 当某个提交出问题，可以轻松切回之前的分支
+- 避免在 master/main 上累积不可追溯的更改
 
-   - 具体改动1
-   - 具体改动2
-
-   Progress: X/Y classes complete
-   ```
-3. **推送到远程** → 每次提交后立即推送到 origin/master
+### 流程
+1. **创建新分支**: `git checkout -b feature/xxx-YYYYMMDD`
+2. **提交代码**: `git add . && git commit -m "description"`
+3. **推送远程**: `git push -u origin feature/xxx-YYYYMMDD`
+4. **合并方式**: 使用 PR，不要直接 push 到 master
 
 ## 智能体职责
 
