@@ -189,17 +189,17 @@ Created: {date}
         status = self.state_manager.get_status()
         next_class = self._get_next_pending_class()
 
-        return f"""## Phase: Test Generation
+        return """## Phase: Test Generation
 
 ### Current Status
-- Tested Classes: {status.get('tested_classes', 0)}/{status.get('total_classes', 0)}
+- Tested Classes: {tested}/{total}
 - Next Class: {next_class}
 
 ### Tasks
 1. Read the source file for `{next_class}`
 2. Analyze the class structure (public methods, dependencies)
 3. Generate JUnit 5 tests following the test_plan.json for this class
-4. Save tests to: `Test/src/test/java/{package_path}/{class_name}Test.java`
+4. Save tests to: `Test/src/test/java/<package>/<ClassName>Test.java`
 5. Update `shared/progress.txt` to mark this class as completed
 
 ### Test Requirements
@@ -215,18 +215,22 @@ Created: {date}
 - Update: `shared/class_list.json` (mark class as tested)
 - Update: `shared/test_plan.json` (mark tests as passes=true)
 
-""")
+""".format(
+            tested=status.get('tested_classes', 0),
+            total=status.get('total_classes', 0),
+            next_class=next_class if next_class else "unknown"
+        )
 
     def _get_evaluate_prompt(self) -> str:
         """Get prompt for test evaluation phase"""
         status = self.state_manager.get_status()
         coverage = status.get('coverage', {})
 
-        return f"""## Phase: Test Evaluation
+        return """## Phase: Test Evaluation
 
 ### Current Coverage
-- Line: {coverage.get('line', 0)*100:.1f}% (target: 70%)
-- Branch: {coverage.get('branch', 0)*100:.1f}% (target: 60%)
+- Line: {line:.1f}% (target: 70%)
+- Branch: {branch:.1f}% (target: 60%)
 
 ### Tasks
 1. Run `mvn test` in the Java project to execute tests
@@ -265,7 +269,11 @@ Created: {date}
 - Otherwise:
   - Continue to generate more tests or fix failing tests
 
-"""
+""".format(
+            line=coverage.get('line', 0) * 100,
+            branch=coverage.get('branch', 0) * 100,
+            date=datetime.now().strftime("%Y-%m-%d")
+        )
 
     def _get_complete_prompt(self) -> str:
         return """## Phase: Complete

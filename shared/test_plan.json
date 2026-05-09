@@ -1,0 +1,31 @@
+{
+  "plan_version": "1.0",
+  "total_classes": 73,
+  "coverage_target": {
+    "line": 0.70,
+    "branch": 0.60,
+    "method": 0.80
+  },
+  "features": [
+    {"class_name": "BlogController", "package": "com.hmdp.controller", "type": "controller", "tests": [
+      {"test_name": "shouldReturnBlogWhenIdValid", "type": "normal_path", "passes": false},
+      {"test_name": "shouldThrowExceptionWhenIdNull", "type": "boundary_condition", "passes": false}
+    ]},
+    {"class_name": "UserController", "package": "com.hmdp.controller", "type": "controller", "tests": [
+      {"test_name": "shouldReturnUserWhenIdValid", "type": "normal_path", "passes": false},
+      {"test_name": "shouldThrowExceptionWhenIdNull", "type": "boundary_condition", "passes": false}
+    ]},
+    {"class_name": "ShopController", "package": "com.hmdp.controller", "type": "controller", "tests": [
+      {"test_name": "shouldReturnShopWhenIdValid", "type": "normal_path", "passes": false},
+      {"test_name": "shouldThrowExceptionWhenIdNull", "type": "boundary_condition", "passes": false}
+    ]},
+    {"class_name": "ShopServiceImpl", "package": "com.hmdp.service.impl", "type": "service", "tests": [
+      {"test_name": "shouldReturnShopById", "type": "normal_path", "passes": false},
+      {"test_name": "shouldReturnNullWhenNotFound", "type": "boundary_condition", "passes": false}
+    ]},
+    {"class_name": "UserServiceImpl", "package": "com.hmdp.service.impl", "type": "service", "tests": [
+      {"test_name": "shouldReturnUserById", "type": "normal_path", "passes": false},
+      {"test_name": "shouldReturnNullWhenNotFound", "type": "boundary_condition", "passes": false}
+    ]}
+  ]
+}

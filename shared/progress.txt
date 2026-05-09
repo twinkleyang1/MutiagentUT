@@ -1,0 +1,40 @@
+# UT Generation Progress
+Created: 2026-05-09
+Project: /home/twinkle/app/808/Agent_UT/dianping
+
+## Summary
+- Total Classes: 73
+- Controllers: 9 (priority 1)
+- Services: 20 (priority 1)
+- Utils: 3 (priority 3)
+- Entities: 11 (priority 4)
+- Mappers/Other: 30 (priority 5)
+
+## Completed
+- None yet
+
+## Pending (Priority 1 - Controllers)
+- BlogCommentsController
+- BlogController
+- FollowController
+- ShopController
+- ShopTypeController
+- UploadController
+- UserController
+- VoucherController
+- VoucherOrderController
+
+## Pending (Priority 1 - Services)
+- BlogCommentsServiceImpl
+- BlogServiceImpl
+- FollowServiceImpl
+- SeckillVoucherServiceImpl
+- ShopServiceImpl
+- ShopTypeServiceImpl
+- UserInfoServiceImpl
+- UserServiceImpl
+- VoucherOrderServiceImpl
+- VoucherServiceImpl
+- (and service interfaces...)
+
+Coverage: 0%
