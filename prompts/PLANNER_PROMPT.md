@@ -117,3 +117,24 @@ Created: {date}
 - ClassName2 (controller)
 ...
 ```
+
+## 完成后交接
+
+完成所有任务后，输出交接信息：
+
+```
+## [Planner] 完成
+
+已完成:
+- 扫描项目，发现 N 个类
+- 生成 shared/class_list.json
+- 生成 shared/test_plan.json
+- 生成 shared/progress.txt
+
+下一个 Agent (Generator) 应该:
+- 从 shared/class_list.json 获取下一个未测试的类
+- 读取该类的源代码
+- 生成 JUnit 5 测试
+
+请继续执行 Generator 职责。
+```

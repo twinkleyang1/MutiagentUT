@@ -160,3 +160,28 @@ Examples:
 - 使用 `assertThrows` 测试异常
 - 使用 `verify` 验证方法调用
 - 不要使用 `@Order` 或测试顺序依赖
+
+## 完成后交接
+
+完成测试生成后，输出交接信息：
+
+```
+## [Generator] 完成
+
+已完成:
+- 为 {ClassName} 生成 {N} 个测试
+- 保存到 Test/src/test/java/{package}/{ClassName}Test.java
+- 更新 shared/class_list.json (tested=true)
+- 更新 shared/test_plan.json (passes=true)
+- 更新 shared/progress.txt
+
+下一个 Agent (Evaluator) 应该:
+- 运行 mvn test 执行测试
+- 运行 mvn jacoco:report 检查覆盖率
+- 更新 shared/coverage_report.json
+
+或者，如果还有未测试的类:
+- 继续作为 Generator，为下一个类生成测试
+
+请继续执行。
+```

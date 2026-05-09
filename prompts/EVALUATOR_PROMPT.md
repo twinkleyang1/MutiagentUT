@@ -138,3 +138,27 @@ void testMethod() {{
 
 Please regenerate tests for {ClassName}.
 ```
+
+## 完成后交接
+
+完成评估后，输出交接信息：
+
+```
+## [Evaluator] 完成
+
+已完成:
+- 运行 mvn test，测试通过
+- 运行 mvn jacoco:report
+- 更新 shared/coverage_report.json
+
+当前覆盖率:
+- Line: XX% (目标 70%)
+- Branch: XX% (目标 60%)
+
+决策:
+- [如果所有类测试完成且覆盖率达标] → 输出 <promise>CODE_IMPROVED</promise>
+- [如果还有未测试的类] → 交给 Generator 继续
+- [如果覆盖率不达标] → 交给 Generator 继续生成更多测试
+
+请继续执行。
+```
